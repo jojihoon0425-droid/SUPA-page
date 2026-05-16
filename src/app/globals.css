@@ -1,0 +1,4 @@
+/* Minimal reset — actual styling handled by Styled Components */
+* {
+  box-sizing: border-box;
+}
