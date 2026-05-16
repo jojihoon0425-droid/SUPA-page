@@ -3,8 +3,6 @@
 import styled from 'styled-components';
 import { useRouter } from 'next/navigation';
 import { createClient } from '@/lib/supabase/client';
-import GlobalStyle from '@/styles/GlobalStyle';
-import StyledComponentsRegistry from '@/lib/registry';
 
 const Layout = styled.div`
   min-height: 100vh;
@@ -83,18 +81,15 @@ export default function AdminShell({ children }: { children: React.ReactNode }) 
   };
 
   return (
-    <StyledComponentsRegistry>
-      <GlobalStyle />
-      <Layout>
-        <TopBar>
-          <Logo>Admin Dashboard</Logo>
-          <TopActions>
-            <HomeLink href="/" target="_blank">← 사이트 보기</HomeLink>
-            <SignOutBtn onClick={handleSignOut}>로그아웃</SignOutBtn>
-          </TopActions>
-        </TopBar>
-        <Content>{children}</Content>
-      </Layout>
-    </StyledComponentsRegistry>
+    <Layout>
+      <TopBar>
+        <Logo>Admin Dashboard</Logo>
+        <TopActions>
+          <HomeLink href="/" target="_blank">← 사이트 보기</HomeLink>
+          <SignOutBtn onClick={handleSignOut}>로그아웃</SignOutBtn>
+        </TopActions>
+      </TopBar>
+      <Content>{children}</Content>
+    </Layout>
   );
 }
